@@ -4,13 +4,14 @@ package com.tulingxueyuan.mall.modules.pms.controller;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.tulingxueyuan.mall.common.api.CommonPage;
 import com.tulingxueyuan.mall.common.api.CommonResult;
+import com.tulingxueyuan.mall.dto.ExecuteExcelDto;
+import com.tulingxueyuan.mall.dto.PmsProductCategoryDTO;
 import com.tulingxueyuan.mall.modules.pms.service.PmsBrandService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import java.util.List;
 
 /**
  * <p>
@@ -42,6 +43,25 @@ public class PmsBrandController {
         Page page = brandService.list(keyword, pageNum, pageSize);
 
         return CommonResult.success(CommonPage.restPage(page));
+    }
+
+    /**
+     * 分类添加
+     * url:'/productCategory/create',
+     *     method:'post',
+     *     data:data
+     */
+    @RequestMapping(value="/executeExcel",method = RequestMethod.POST)
+    public CommonResult executeExcel(@RequestBody List<ExecuteExcelDto> executeExcelDtoList){
+
+        boolean result = brandService.executeExcel(executeExcelDtoList);
+        if(result){
+            return CommonResult.success(result);
+        }
+        else {
+            return CommonResult.failed();
+        }
+
     }
 }
 

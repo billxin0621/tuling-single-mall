@@ -2,12 +2,15 @@ package com.tulingxueyuan.mall.modules.pms.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.tulingxueyuan.mall.dto.ExecuteExcelDto;
 import com.tulingxueyuan.mall.modules.pms.model.PmsBrand;
 import com.tulingxueyuan.mall.modules.pms.mapper.PmsBrandMapper;
 import com.tulingxueyuan.mall.modules.pms.service.PmsBrandService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
+
+import java.util.List;
 
 /**
  * <p>
@@ -40,5 +43,10 @@ public class PmsBrandServiceImpl extends ServiceImpl<PmsBrandMapper, PmsBrand> i
         pmsBrandQueryWrapper.lambda().orderByAsc(PmsBrand::getSort);
 
         return this.page(page,pmsBrandQueryWrapper);
+    }
+
+    @Override
+    public boolean executeExcel(List<ExecuteExcelDto> executeExcelDtoList) {
+        return true;
     }
 }
