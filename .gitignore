@@ -1,3 +1,7 @@
 **/target/**
-.idea/
+./.idea/**
+.idea/**
+**/.idea/**
 parent.iml
+tuling-common/target/**
+tuling-admin/**
