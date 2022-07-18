@@ -18,8 +18,21 @@ import java.util.List;
  */
 public interface BranchDataService extends IService<BranchData> {
 
+    /**
+     * 部门数据表清空并插入数据（批量）
+     * @param list 插入的数据
+     */
     public void insertBranchData(List<BranchData> list);
 
-    public Page list(String name, String dataType, String anyMatch, Integer pageNum, Integer pageSize);
+    /**
+     * excel数据查询展示
+     * @param branchName 部门名称
+     * @param dataType 数据类型
+     * @param anyMatch 模糊条件（日期、部门名称、数据类型）
+     * @param pageNum 查询页
+     * @param pageSize 每页查询数量
+     * @return
+     */
+    public Page list(String branchName, String dataType, String anyMatch, Integer pageNum, Integer pageSize);
 
 }

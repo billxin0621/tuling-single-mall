@@ -29,7 +29,7 @@ public class BranchDataController {
     private BranchDataService branchDataService;
 
     /**
-     *
+     * excel数据导入
      * @param list
      * @return
      */
@@ -47,7 +47,15 @@ public class BranchDataController {
     }
 
 
-
+    /**
+     * excel数据查询展示
+     * @param branchName 部门名称
+     * @param dataType 数据类型
+     * @param anyMatch 模糊条件（日期、部门名称、数据类型）
+     * @param pageNum 查询页
+     * @param pageSize 每页查询数量
+     * @return
+     */
     @RequestMapping(value = "/list",method = RequestMethod.GET)
     public CommonResult list(
             @RequestParam(value="branchName",defaultValue = "") String branchName,

@@ -34,4 +34,64 @@
         delete from branch_data
     </delete>
 
+    <insert id="insertBatch" >
+        insert into
+        branch_data
+        (
+            id,
+            date,
+            branch_name,
+            data_type,
+            user,
+            user_tongbi,
+            dapan,
+            branch_dapan_zhanbi,
+            chengjiaojine,
+            chengjiaojine_tongbi,
+            xiaoliang,
+            dingdan,
+            arpu,
+            arpu_tongbi,
+            kedanjia,
+            kedanjia_tongbi,
+            goumaipinci,
+            goumaipinci_tongbi,
+            jiandanjia,
+            jiandanjia_tongbi,
+            renjunxiaoliang,
+            renjunxiaoliang_tongbi,
+            renjunjianshu,
+            renjunjianshu_tongbi
+        )
+        values
+        <foreach collection="list" item="item" index="index" separator=",">
+            (
+            #{item.id},
+            #{item.date},
+            #{item.branchName},
+            #{item.dataType},
+            #{item.user},
+            #{item.userTongbi},
+            #{item.dapan},
+            #{item.branchDapanZhanbi},
+            #{item.chengjiaojine},
+            #{item.chengjiaojineTongbi},
+            #{item.xiaoliang},
+            #{item.dingdan},
+            #{item.arpu},
+            #{item.arpuTongbi},
+            #{item.kedanjia},
+            #{item.kedanjiaTongbi},
+            #{item.goumaipinci},
+            #{item.goumaipinciTongbi},
+            #{item.jiandanjia},
+            #{item.jiandanjiaTongbi},
+            #{item.renjunxiaoliang},
+            #{item.renjunxiaoliangTongbi},
+            #{item.renjunjianshu},
+            #{item.renjunjianshuTongbi}
+            )
+        </foreach>
+    </insert>
+
 </mapper>
