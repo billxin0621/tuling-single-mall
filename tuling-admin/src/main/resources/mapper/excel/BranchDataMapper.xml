@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tulingxueyuan.mall.modules.excel.mapper.BranchDataMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.tulingxueyuan.mall.modules.excel.model.BranchData">
+        <id column="id" property="id" />
+        <result column="date" property="date" />
+        <result column="branch_name" property="branchName" />
+        <result column="data_type" property="dataType" />
+        <result column="user" property="user" />
+        <result column="user_tongbi" property="userTongbi" />
+        <result column="dapan" property="dapan" />
+        <result column="branch_dapan_zhanbi" property="branchDapanZhanbi" />
+        <result column="chengjiaojine" property="chengjiaojine" />
+        <result column="chengjiaojine_tongbi" property="chengjiaojineTongbi" />
+        <result column="xiaoliang" property="xiaoliang" />
+        <result column="dingdan" property="dingdan" />
+        <result column="arpu" property="arpu" />
+        <result column="arpu_tongbi" property="arpuTongbi" />
+        <result column="kedanjia" property="kedanjia" />
+        <result column="kedanjia_tongbi" property="kedanjiaTongbi" />
+        <result column="goumaipinci" property="goumaipinci" />
+        <result column="goumaipinci_tongbi" property="goumaipinciTongbi" />
+        <result column="jiandanjia" property="jiandanjia" />
+        <result column="jiandanjia_tongbi" property="jiandanjiaTongbi" />
+        <result column="renjunxiaoliang" property="renjunxiaoliang" />
+        <result column="renjunxiaoliang_tongbi" property="renjunxiaoliangTongbi" />
+        <result column="renjunjianshu" property="renjunjianshu" />
+        <result column="renjunjianshu_tongbi" property="renjunjianshuTongbi" />
+    </resultMap>
+
+    <delete id="deleteAll">
+        delete from branch_data
+    </delete>
+
+</mapper>

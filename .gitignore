@@ -4,4 +4,4 @@
 **/.idea/**
 parent.iml
 tuling-common/target/**
-tuling-admin/**
+tuling-admin/tulong-admin.iml
