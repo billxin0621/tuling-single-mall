@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.tulingxueyuan.mall.common.api.CommonPage;
 import com.tulingxueyuan.mall.common.api.CommonResult;
 import com.tulingxueyuan.mall.dto.ExecuteExcelDto;
+import com.tulingxueyuan.mall.dto.excel.InsertBranchDataDto;
 import com.tulingxueyuan.mall.modules.excel.model.BranchData;
 import com.tulingxueyuan.mall.modules.excel.service.BranchDataService;
 import com.tulingxueyuan.mall.modules.excel.service.BranchSaleShopResultDataService;
@@ -34,9 +35,9 @@ public class BranchDataController {
      * @return
      */
     @RequestMapping(value="/insertBranchData",method = RequestMethod.POST)
-    public CommonResult executeExcel(@RequestBody List<BranchData> list){
+    public CommonResult insertBranchData(@RequestBody InsertBranchDataDto req){
 
-        branchDataService.insertBranchData(list);
+        branchDataService.insertBranchData(req.getSheet1());
         if(true){
             return CommonResult.success(true);
         }
