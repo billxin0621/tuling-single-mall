@@ -4,15 +4,10 @@ package com.tulingxueyuan.mall.modules.excel.controller;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.tulingxueyuan.mall.common.api.CommonPage;
 import com.tulingxueyuan.mall.common.api.CommonResult;
-import com.tulingxueyuan.mall.dto.ExecuteExcelDto;
 import com.tulingxueyuan.mall.dto.excel.InsertBranchDataDto;
-import com.tulingxueyuan.mall.modules.excel.model.BranchData;
 import com.tulingxueyuan.mall.modules.excel.service.BranchDataService;
-import com.tulingxueyuan.mall.modules.excel.service.BranchSaleShopResultDataService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 /**
  * <p>

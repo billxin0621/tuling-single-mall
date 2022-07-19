@@ -5,7 +5,6 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.tulingxueyuan.mall.modules.excel.mapper.BranchDataMapper;
 import com.tulingxueyuan.mall.modules.excel.model.BranchData;
-import com.tulingxueyuan.mall.modules.excel.model.BranchSaleShopResultData;
 import com.tulingxueyuan.mall.modules.excel.service.BranchDataService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
