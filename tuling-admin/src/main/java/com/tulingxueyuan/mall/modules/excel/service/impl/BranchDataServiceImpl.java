@@ -1,8 +1,10 @@
 package com.tulingxueyuan.mall.modules.excel.service.impl;
 
+import com.alibaba.fastjson.JSON;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.google.gson.JsonObject;
 import com.tulingxueyuan.mall.modules.excel.mapper.BranchDataMapper;
 import com.tulingxueyuan.mall.modules.excel.model.BranchData;
 import com.tulingxueyuan.mall.modules.excel.service.BranchDataService;
@@ -107,6 +109,7 @@ public class BranchDataServiceImpl extends ServiceImpl<BranchDataMapper, BranchD
             body.setRenjunjianshu(dataFormatSetScale(body.getRenjunjianshu()));
 
         }
+        log.info("查询返回值为：{}", JSON.toJSONString(orders));
         return result;
     }
 

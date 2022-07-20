@@ -56,18 +56,22 @@
 	<!-- springProfile多环境日志输出，根据不同环境（dev:开发环境，test:测试环境，uat:预发环境，production:生产环境）来定义不同的日志输出，读取spring.profiles.active的值 -->
 	<springProfile name="dev,test,uat">
 		<logger name="com.zaxxer.hikari" level="debug" >
+			<appender-ref ref="console"/>
 			<appender-ref ref="fileAll"/>
 			<appender-ref ref="fileError"/>
 		</logger>
 		<logger name="com.sinosoft" level="debug" >
+			<appender-ref ref="console"/>
 			<appender-ref ref="fileAll"/>
 			<appender-ref ref="fileError"/>
 		</logger>
 		<logger name="com.github" level="debug" >
+			<appender-ref ref="console"/>
 			<appender-ref ref="fileAll"/>
 			<appender-ref ref="fileError"/>
 		</logger>
 		<logger name="org.mybatis" level="debug" >
+			<appender-ref ref="console"/>
 			<appender-ref ref="fileAll"/>
 			<appender-ref ref="fileError"/>
 		</logger>
