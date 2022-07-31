@@ -1,11 +1,13 @@
 package com.tulingxueyuan.mall.modules.excel.controller;
 
 
+import com.alibaba.fastjson.JSON;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.tulingxueyuan.mall.common.api.CommonPage;
 import com.tulingxueyuan.mall.common.api.CommonResult;
 import com.tulingxueyuan.mall.dto.excel.InsertBranchDataDto;
 import com.tulingxueyuan.mall.modules.excel.service.BranchDataService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,28 +21,11 @@ import org.springframework.web.bind.annotation.*;
  */
 @RestController
 @RequestMapping("/branchData")
+@Slf4j
 public class BranchDataController {
 
     @Autowired
     private BranchDataService branchDataService;
-
-    /**
-     * excel数据导入
-     * @param list
-     * @return
-     */
-    @RequestMapping(value="/insertBranchData",method = RequestMethod.POST)
-    public CommonResult insertBranchData(@RequestBody InsertBranchDataDto req){
-
-        branchDataService.insertBranchData(req.getSheet1());
-        if(true){
-            return CommonResult.success(true);
-        }
-        else {
-            return CommonResult.failed();
-        }
-
-    }
 
 
     /**
@@ -60,12 +45,46 @@ public class BranchDataController {
             @RequestParam(value="pageNum",defaultValue = "1") Integer pageNum,
             @RequestParam(value="pageSize",defaultValue = "10000") Integer pageSize)
     {
-
         Page page = branchDataService.list(branchName, dataType, anyMatch, pageNum, pageSize);
-
         return CommonResult.success(CommonPage.restPage(page));
+    }
+
+    /**
+     * excel数据导入
+     * @param req
+     * @return
+     */
+    @RequestMapping(value="/insertBranchData",method = RequestMethod.POST)
+    public CommonResult insertBranchData(@RequestBody InsertBranchDataDto req){
+        Boolean result = branchDataService.insertBranchData(req.getSheet1());
+        if(result){
+            return CommonResult.success(true);
+        }
+        else {
+            return CommonResult.failed();
+        }
+    }
+
+    /**
+     * excel数据导入
+     * @param req
+     * @return
+     */
+    @RequestMapping(value="/executeExcelResultBack",method = RequestMethod.POST)
+    public CommonResult executeExcelResultBack(@RequestBody InsertBranchDataDto req){
+        // 待执行的逻辑
+        log.info("前端参数：{}", JSON.toJSONString(req));
+
+        if(true){
+            return CommonResult.success(true);
+        }
+        else {
+            return CommonResult.failed();
+        }
 
     }
+
+
 
 }
 

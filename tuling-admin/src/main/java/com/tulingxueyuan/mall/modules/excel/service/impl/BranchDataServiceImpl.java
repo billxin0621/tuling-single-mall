@@ -39,10 +39,17 @@ public class BranchDataServiceImpl extends ServiceImpl<BranchDataMapper, BranchD
      * @param list 插入的数据
      */
     @Override
-    public void insertBranchData(List<BranchData> list){
+    public Boolean insertBranchData(List<BranchData> list){
+        // 1、清除部门数据表全部数据
         branchDataMapper.deleteAll();
+        // 2、插入数据至部门数据表
         int result = branchDataMapper.insertBatch(list);
         log.info("部门数据表插入数据条数：{}", result);
+        if (result > 0){
+            return true;
+        }else {
+            return false;
+        }
     }
 
     /**

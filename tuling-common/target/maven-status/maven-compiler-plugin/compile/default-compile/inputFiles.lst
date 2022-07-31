@@ -7,7 +7,9 @@ D:\workspace\workspaceMyself\mail\tuling-single-mall\tuling-common\src\main\java
 D:\workspace\workspaceMyself\mail\tuling-single-mall\tuling-common\src\main\java\com\tulingxueyuan\mall\common\config\BaseRedisConfig.java
 D:\workspace\workspaceMyself\mail\tuling-single-mall\tuling-common\src\main\java\com\tulingxueyuan\mall\common\exception\GlobalExceptionHandler.java
 D:\workspace\workspaceMyself\mail\tuling-single-mall\tuling-common\src\main\java\com\tulingxueyuan\mall\common\service\RedisService.java
+D:\workspace\workspaceMyself\mail\tuling-single-mall\tuling-common\src\main\java\com\tulingxueyuan\mall\common\config\UidConfig.java
 D:\workspace\workspaceMyself\mail\tuling-single-mall\tuling-common\src\main\java\com\tulingxueyuan\mall\common\config\BaseSwaggerConfig.java
+D:\workspace\workspaceMyself\mail\tuling-single-mall\tuling-common\src\main\java\com\tulingxueyuan\mall\common\config\AppContext.java
 D:\workspace\workspaceMyself\mail\tuling-single-mall\tuling-common\src\main\java\com\tulingxueyuan\mall\common\util\ComConstants.java
 D:\workspace\workspaceMyself\mail\tuling-single-mall\tuling-common\src\main\java\com\tulingxueyuan\mall\common\service\impl\RedisServiceImpl.java
 D:\workspace\workspaceMyself\mail\tuling-single-mall\tuling-common\src\main\java\com\tulingxueyuan\mall\common\util\JwtTokenUtil.java

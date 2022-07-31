@@ -19,7 +19,7 @@ public class SwaggerConfig extends BaseSwaggerConfig {
                 .apiBasePackage("com.tulingxueyuan.mall.modules")
                 .title("图灵商城基础版项目后台管理系统")
                 .description("tuling_mall项目后台管理接口文档")
-                .contactName("xushu")
+                .contactName("billxin")
                 .version("1.0")
                 .build();
     }

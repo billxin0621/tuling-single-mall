@@ -22,7 +22,7 @@ public interface BranchDataService extends IService<BranchData> {
      * 部门数据表清空并插入数据（批量）
      * @param list 插入的数据
      */
-    public void insertBranchData(List<BranchData> list);
+    public Boolean insertBranchData(List<BranchData> list);
 
     /**
      * excel数据查询展示
