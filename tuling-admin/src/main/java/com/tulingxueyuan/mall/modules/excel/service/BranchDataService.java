@@ -33,6 +33,7 @@ public interface BranchDataService extends IService<BranchData> {
      * @param pageSize 每页查询数量
      * @return
      */
-    public Page list(String branchName, String dataType, String anyMatch, Integer pageNum, Integer pageSize);
+    public Page list(String branchName, String dataType, String anyMatch,
+                    String dateStart, String dateEnd, Integer pageNum, Integer pageSize);
 
 }

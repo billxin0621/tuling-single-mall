@@ -11,6 +11,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.SQLOutput;
+import java.util.List;
+
 /**
  * <p>
  * 部门数据 前端控制器
@@ -42,10 +45,14 @@ public class BranchDataController {
             @RequestParam(value="branchName",defaultValue = "") String branchName,
             @RequestParam(value="dataType",defaultValue = "") String dataType,
             @RequestParam(value="anyMatch",defaultValue = "") String anyMatch,
+            @RequestParam(value="dateStart",defaultValue = "") String dateStart,
+            @RequestParam(value="dateEnd",defaultValue = "") String dateEnd,
             @RequestParam(value="pageNum",defaultValue = "1") Integer pageNum,
             @RequestParam(value="pageSize",defaultValue = "10000") Integer pageSize)
     {
-        Page page = branchDataService.list(branchName, dataType, anyMatch, pageNum, pageSize);
+        System.out.println(dateStart);
+        Page page = branchDataService.list(branchName, dataType, anyMatch,
+                                        dateStart, dateEnd, pageNum, pageSize);
         return CommonResult.success(CommonPage.restPage(page));
     }
 

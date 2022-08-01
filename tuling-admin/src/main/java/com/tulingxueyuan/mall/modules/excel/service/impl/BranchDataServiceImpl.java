@@ -62,7 +62,9 @@ public class BranchDataServiceImpl extends ServiceImpl<BranchDataMapper, BranchD
      * @return
      */
     @Override
-    public Page list(String branchName, String dataType, String anyMatch, Integer pageNum, Integer pageSize) {
+    public Page list(String branchName, String dataType, String anyMatch
+            , String dateStart, String dateEnd
+            , Integer pageNum, Integer pageSize) {
         Page page=new Page(pageNum,pageSize);
 
         QueryWrapper<BranchData> queryWrapper = new QueryWrapper<>();
@@ -80,6 +82,12 @@ public class BranchDataServiceImpl extends ServiceImpl<BranchDataMapper, BranchD
             }
             if(!StringUtils.isEmpty(dataType)){
                 queryWrapper.lambda().eq(BranchData::getDataType, dataType);
+            }
+            if(!StringUtils.isEmpty(dateStart)){
+                queryWrapper.lambda().ge(BranchData::getDate, dateStart);
+            }
+            if(!StringUtils.isEmpty(dateEnd)){
+                queryWrapper.lambda().le(BranchData::getDate, dateEnd);
             }
         }
 
@@ -103,17 +111,17 @@ public class BranchDataServiceImpl extends ServiceImpl<BranchDataMapper, BranchD
             body.setRenjunxiaoliangTongbi(dataFormatPercent(body.getRenjunxiaoliangTongbi()));
             body.setRenjunjianshuTongbi(dataFormatPercent(body.getRenjunjianshuTongbi()));
             // 格式化数据为两位小数
-            body.setUser(dataFormatSetScale(body.getUser()));
-            body.setDapan(dataFormatSetScale(body.getDapan()));
-            body.setChengjiaojine(dataFormatSetScale(body.getChengjiaojine()));
-            body.setXiaoliang(dataFormatSetScale(body.getXiaoliang()));
-            body.setDingdan(dataFormatSetScale(body.getDingdan()));
-            body.setArpu(dataFormatSetScale(body.getArpu()));
-            body.setKedanjia(dataFormatSetScale(body.getKedanjia()));
-            body.setGoumaipinci(dataFormatSetScale(body.getGoumaipinci()));
-            body.setJiandanjia(dataFormatSetScale(body.getJiandanjia()));
-            body.setRenjunxiaoliang(dataFormatSetScale(body.getRenjunxiaoliang()));
-            body.setRenjunjianshu(dataFormatSetScale(body.getRenjunjianshu()));
+            body.setUser(dataFormatSetScale0(body.getUser()));
+            body.setDapan(dataFormatSetScale0(body.getDapan()));
+            body.setChengjiaojine(dataFormatSetScale0(body.getChengjiaojine()));
+            body.setXiaoliang(dataFormatSetScale0(body.getXiaoliang()));
+            body.setDingdan(dataFormatSetScale0(body.getDingdan()));
+            body.setArpu(dataFormatSetScale0(body.getArpu()));
+            body.setKedanjia(dataFormatSetScale0(body.getKedanjia()));
+            body.setGoumaipinci(dataFormatSetScale0(body.getGoumaipinci()));
+            body.setJiandanjia(dataFormatSetScale0(body.getJiandanjia()));
+            body.setRenjunxiaoliang(dataFormatSetScale0(body.getRenjunxiaoliang()));
+            body.setRenjunjianshu(dataFormatSetScale0(body.getRenjunjianshu()));
 
         }
         log.info("查询返回值为：{}", JSON.toJSONString(orders));
@@ -129,6 +137,22 @@ public class BranchDataServiceImpl extends ServiceImpl<BranchDataMapper, BranchD
         try {
             if (!StringUtils.isEmpty(data)){
                 return new BigDecimal(data).setScale(2, BigDecimal.ROUND_HALF_UP).toString();
+            }
+        }catch (Exception e){
+            return null;
+        }
+        return null;
+    }
+
+    /**
+     * 格式化数据为0位小数
+     * @param data
+     * @return
+     */
+    private String dataFormatSetScale0(String data){
+        try {
+            if (!StringUtils.isEmpty(data)){
+                return new BigDecimal(data).setScale(0, BigDecimal.ROUND_HALF_UP).toString();
             }
         }catch (Exception e){
             return null;
