@@ -4,6 +4,7 @@
 **/.idea/**
 parent.iml
 tuling-common/target/**
-tuling-admin/tulong-admin.iml
-tuling-mpbg/
+tuling-common/tuling-common.iml
 tuling-portal/
+tuling-mpbg/tuling-mpbg.iml
+tuling-admin/tuling-admin.iml
