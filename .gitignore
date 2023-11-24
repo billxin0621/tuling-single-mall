@@ -5,3 +5,5 @@
 parent.iml
 tuling-common/target/**
 tuling-admin/tulong-admin.iml
+tuling-mpbg/
+tuling-portal/
